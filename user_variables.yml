@@ -92,3 +92,12 @@ tempest_run: yes
 nova_service_negate:
   - "nova-agent.service"
   - "nova-resetnetwork.service"
+
+glance_glance_api_conf_overrides:
+  cors:
+    allowed_origin: "https://10.30.22.19/admin/images,https://10.30.22.19"
+    allow_credentials: true
+    expose_headers: "X-Image-Meta-Checksum,X-Auth-Token,X-Subject-Token,X-Service-Token,X-OpenStack-Request-ID"
+    max_age: 3600
+    allow_methods: "GET,PUT,POST,DELETE,PATCH"
+    allow_headers: "Content-MD5,X-Image-Meta-Checksum,X-Storage-Token,Accept-Encoding,X-Auth-Token,X-Identity-Status,X-Roles,X-Service-Catalog,X-User-Id,X-Tenant-Id,X-OpenStack-Request-ID"
